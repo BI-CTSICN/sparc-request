@@ -59,6 +59,9 @@ def build_statuses
   PermissibleValue.create(category: 'status', key: 'on_hold', value: 'On Hold', default: true)
   PermissibleValue.create(category: 'status', key: 'submitted', value: 'Submitted', default: true)
   PermissibleValue.create(category: 'status', key: 'withdrawn', value: 'Withdrawn')
+  PermissibleValue.create(category: 'status', key: 'paid', value: 'Paid')
+  PermissibleValue.create(category: 'status', key: 'ctsi_cn_review', value: 'Review')
+  PermissibleValue.create(category: 'status', key: 'ctsi_cn_approved', value: 'Approved')
 end
 
 def build_user_roles
