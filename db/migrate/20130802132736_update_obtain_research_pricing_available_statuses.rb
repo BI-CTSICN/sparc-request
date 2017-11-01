@@ -43,7 +43,10 @@ class UpdateObtainResearchPricingAvailableStatuses < ActiveRecord::Migration[4.2
               'in_process': 'In Process',
               'on_hold': 'On Hold',
               'submitted': 'Submitted',
-              'withdrawn': 'Withdrawn' }
+              'withdrawn': 'Withdrawn',
+              'paid': 'Paid',
+              'ctsi_cn_review': 'Review',
+              'ctsi_cn_approved': 'Approved' }
   end
 
   def up
