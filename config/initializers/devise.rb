@@ -1,4 +1,4 @@
-# Copyright © 2011-2017 MUSC Foundation for Research Development
+# Copyright © 2011-2018 MUSC Foundation for Research Development
 # All rights reserved.
 
 # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -235,10 +235,12 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
 
+
   #config.omniauth :shibboleth, {:uid_field => 'eppn',
   #                :info_fields => {:email => 'mail', :name => 'cn', :last_name => 'sn', :first_name => 'givenName'},
   #                :extra_fields => [:schacHomeOrganization]
   #}
+
 
   cas_config_file_path = Rails.root.join('config', 'cas.yml')
   if File.exist?(cas_config_file_path)
