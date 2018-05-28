@@ -241,7 +241,7 @@
   },
   {
     "key":            "navbar_links",
-    "value":          "{ \"sparc_request\": [\"SPARCRequest\", \"https://sparc.ctsicn.org/\"], \"sparc_dashboard\": [\"SPARCDashboard\", \"https://sparc.ctsicn.org/dashboard\"], \"sparc_fulfillment\": [\"SPARCFulfillment\", \"http://10.54.13.48:5000/identities/sign_in\"], \"sparc_catalog\": [\"SPARCCatalog\", \"https://sparc.ctsicn.org/catalog_manager\"], \"sparc_report\": [\"SPARCReport\", \"https://sparc.ctsicn.org/reports\"] }",
+    "value":          "{ \"sparc_request\": [\"SPARCRequest\", \"https://sparctest.ctsicn.org/\"], \"sparc_dashboard\": [\"SPARCDashboard\", \"https://sparctest.ctsicn.org/dashboard\"], \"sparc_fulfillment\": [\"SPARCFulfillment\", \"http://10.54.13.48:5000/identities/sign_in\"], \"sparc_catalog\": [\"SPARCCatalog\", \"https://sparctest.ctsicn.org/catalog_manager\"], \"sparc_report\": [\"SPARCReport\", \"https://sparctest.ctsicn.org/reports\"],\"sparc_forms\": [\"SPARCForms\", \"http://sparctest.ctsicn.org/surveyor/responses\"] }",
     "friendly_name":  "Navbar Links",
     "description":    "Links which appear in the header navbar.",
     "group":          "",
@@ -614,6 +614,26 @@
     "value":          "/usr/local/bin/wkhtmltopdf",
     "friendly_name":  "WKHTMLTOPDF Location",
     "description":    "Optional location for wkhtmltopdf if not using one supplied by a gem. eg. \"/usr/local/bin/wkhtmltopdf\"",
+    "group":          "",
+    "version":        "",
+    "parent_key":     "",
+    "parent_value":   ""
+  },
+  {
+    "key":            "funding_admins",
+    "value":          "[]",
+    "friendly_name":  "Funding Admins",
+    "description":    "Determines which users will have access to the Funding module.",
+    "group":          "",
+    "version":        "",
+    "parent_key":     "",
+    "parent_value":   ""
+  },
+  {
+    "key":            "funding_org_ids",
+    "value":          "[]",
+    "friendly_name":  "Funding Opportunities Organizations",
+    "description":    "Organization ID of the organizations under the Funding Opportunities.",
     "group":          "",
     "version":        "",
     "parent_key":     "",
