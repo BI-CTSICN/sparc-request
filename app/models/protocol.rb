@@ -22,6 +22,10 @@ class Protocol < ApplicationRecord
 
   include RemotelyNotifiable
 
+  include SanitizedData
+  sanitize_setter :short_title, :special_characters, :squish
+  sanitize_setter :title, :special_characters, :squish
+
   audited
 
   has_many :study_types,                  dependent: :destroy
@@ -62,7 +66,7 @@ class Protocol < ApplicationRecord
   validates :research_master_id, numericality: { only_integer: true }, allow_blank: true
   validates :research_master_id, presence: true, if: :rmid_requires_validation?
 
-  validates :indirect_cost_rate, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 1000 }, allow_blank: true
+  validates :indirect_cost_rate, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 1000 }, allow_blank: true, if: :indirect_cost_enabled
 
   attr_accessor :requester_id
   attr_accessor :validate_nct
@@ -127,7 +131,7 @@ class Protocol < ApplicationRecord
     if research_master_id.present? && !ids.include?(research_master_id)
       errors.add(:_, 'The entered Research Master ID does not exist. Please go to the Research Master website to create a new record.')
     end
-    
+
     rescue
       return "server_down"
   end
@@ -551,6 +555,10 @@ class Protocol < ApplicationRecord
   end
 
   private
+
+  def indirect_cost_enabled
+    Setting.find_by_key('use_indirect_cost').value
+  end
 
   def notify_remote_around_update?
     true
