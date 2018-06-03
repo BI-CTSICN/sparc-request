@@ -674,6 +674,7 @@ DEPENDENCIES
   progress_bar
   pry
   puma (~> 3.0)
+  rack (= 2.0.5)
   rack-mini-profiler
   rails (~> 5.1, >= 5.1.4)
   rails-controller-testing
