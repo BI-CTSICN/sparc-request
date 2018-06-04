@@ -580,7 +580,7 @@ GEM
     wasabi (3.1.0)
       httpi (~> 2.0)
       nokogiri (>= 1.4.0)
-    webmock (3.4.1)
+    webmock (3.4.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -674,7 +674,7 @@ DEPENDENCIES
   progress_bar
   pry
   puma (~> 3.0)
-  rack (= 2.0.5)
+  rack (~> 2.0, >= 2.0.5)
   rack-mini-profiler
   rails (~> 5.1, >= 5.1.4)
   rails-controller-testing
