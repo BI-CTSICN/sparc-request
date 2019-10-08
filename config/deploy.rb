@@ -19,15 +19,15 @@
 # TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.~
 
 # config valid only for current version of Capistrano
-lock "3.10.1"
+lock "3.11.0"
 
 set :application, "sparc_rails"
-set :repo_url, "git@github.com:bmic-development/sparc-request.git"
+set :repo_url, "git@github.com:BI-CTSICN/sparc-request.git"
 set :user, 'capistrano'
 set :use_sudo, false
 
-set :stages, %w(testing demo demo2 staging production)
-set :default_stage, 'testing'
+set :stages, %w(testing development demo2 staging production)
+set :default_stage, 'development'
 
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
