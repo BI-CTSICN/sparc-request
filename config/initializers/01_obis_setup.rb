@@ -1,4 +1,4 @@
-# Copyright © 2011-2017 MUSC Foundation for Research Development
+# Copyright © 2011-2018 MUSC Foundation for Research Development
 # All rights reserved.
 
 # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -35,7 +35,6 @@ end
 begin
   constant_file                  = File.join(Rails.root, 'config', 'constants.yml')
   config                         = YAML::load_file(constant_file)
-  ADDITIONAL_DETAIL_QUESTION_TYPES = config['additional_detail_question_types']
   BROWSER_VERSIONS               = config['browser_versions']
   EPIC_RIGHTS                    = config['epic_rights']
   EPIC_RIGHTS_INFO               = config['epic_rights_info']
@@ -47,7 +46,6 @@ begin
   STUDY_TYPE_ANSWERS_VERSION_2   = config['study_type_answers_version_2']
   STUDY_TYPE_ANSWERS_VERSION_3   = config['study_type_answers_version_3']
   STUDY_TYPE_NOTES               = config['study_type_notes']
-  FUNDING_STATUSES               = config['funding_statuses']
   ACCORDION_COLOR_OPTIONS        = config['accordion_color_options']
   STUDY_PHASES                   = config['study_phases']
   INSTITUTIONS                   = config['institutions']
@@ -58,8 +56,6 @@ begin
   AUDIT_ACTIONS                  = config['audit_actions']
   ALERT_TYPES                    = config['alert_types']
   ALERT_STATUSES                 = config['alert_statuses']
-  IRB_APPROVAL_STATUS            = config['irb_approval_status']
-
 rescue
   raise "constants.yml not found"
 end

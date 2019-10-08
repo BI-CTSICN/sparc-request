@@ -32,6 +32,7 @@ en:
     continue: "Continue"
     delete: "Delete"
     edit: "Edit"
+    filter: "Filter"
     print: "Print"
     remove: "Remove"
     reply: "Reply"
@@ -49,22 +50,22 @@ en:
   activerecord:
     errors:
       models:
-        item:
+        form:
           attributes:
-            content:
-              blank: "Content can't be blank"
-        questionnaire:
+            active:
+              taken: "A different version of this Form is already active"
+        project_role:
           attributes:
-            name:
-              blank: "Name can't be blank"
-        item_option:
-          attributes:
-            content:
-              blank: "Content can't be blank"
+            identity_id:
+              blank: "^Primary PI can't be blank"
         question_response:
           attributes:
             content:
-              blank: "has to be answered"
+              blank: "required"
+        system_survey:
+          attributes:
+            active:
+              taken: "A different version of this Survey is already active"
       messages:
         spoofed_media_type: "has format errors. Please re-save the file in a different format and try again."
     attributes:
@@ -88,7 +89,9 @@ en:
       question:
         content: "Question"
       question_response:
-        content: "Required Question"
+        content: "Question"
+      survey:
+        active: ""
       visit:
         research_billing_qty: "Research Billing Quantity"
         insurance_billing_qty: "Insurance Billing Quantity"
@@ -279,6 +282,18 @@ en:
       visit_day: 'Day the anticipated visit occurs (incremental)'
       visit_name: 'Name of the visit'
 
+  calendar_structure:
+    header: "Calendar Structure"
+    lock_calendar: "Lock Calendar"
+    unlock_calendar: "Unlock Calendar"
+    table_fields:
+      arm_name: "Arm Name"
+      subject_count: "Subject Count"
+      visit_count: "Visit Count"
+    tooltips:
+      lock_calendar: 'Locking the calendar will prevent users from making changes to arm, subject, and visit information.'
+      arm_info: 'The calendar has been locked by an administrator. No changes to the stucture may be made at this time.'
+
   #############
   # CONSTANTS #
   #############
@@ -331,18 +346,29 @@ en:
       heading: "Uh, oh.  You've hit a"
       error: "Page Not Found (404)"
       help_text: "For help, contact us:"
-      link_href: "mailto:sparcrequest@childrensnational.org"
-      link_display: "Email: sparcrequest@childrensnational.org"
+      link_href: "mailto:success@musc.edu"
+      link_display: "Email: success@musc.edu"
       phone_href: "tel:843-792-8300"
       phone_display: "Call: 843-792-8300"
     server_error:
       heading: "Uh, oh.  You've hit an"
       error: "Internal Server Error (500)"
       help_text: "For help, contact us:"
-      link_href: "mailto:sparcrequest@childrensnational.org"
-      link_display: "Email: sparcrequest@childrensnational.org"
+      link_href: "mailto:success@musc.edu"
+      link_display: "Email: success@musc.edu"
       phone_href: "tel:843-792-8300"
       phone_display: "Call: 843-792-8300"
+
+  #########
+  # FORMS #
+  #########
+  forms:
+    table_fields:
+      srid: "SRID"
+      association: "Association"
+      title: "Form Title"
+      completed: "Completed"
+      options: "Options"
 
   ##############
   # IDENTITIES #
@@ -425,7 +451,7 @@ en:
       updated: "Protocol Type Updated!"
       new_study_warning: "Please complete Sponsor Name and Publish Study in Epic"
     studies:
-      new: "New Research Study or Project"
+      new: "New Research Study"
       information:
         header: "Study Information"
         subtext: "Necessary to obtain correct pricing"
@@ -448,8 +474,8 @@ en:
         push_to_epic: "Publish Study in Epic:"
         study_type_questions: "Study Type Questions:"
         note: "Note: "
-      optional_information:
-        header: "Optional Information"
+      financial_information:
+        header: "Financial Information"
         subtext: "Used for reporting purposes and saved for your future use"
         udak_project_number: "Financial Account (UDAK #):"
         rate: "Indirect Cost Rate:"
@@ -525,15 +551,14 @@ en:
       federal_sponsor: "Select if Applicable"
       phase: "Select Study Phase(s)"
       submission_type: "Select a Submission Type"
-      approval_pending: "Select IRB Application/Approval Status"
     tooltips:
       epic: 'Defines whether record will interface to Epic EMR upon submission'
       study_type_questions: 'Information needed to determine confidentiality of patients/protocols'
       nct_number: 'Clinicaltrials.gov Registry Number'
       pro_number: 'Institutional Review Board (IRB) Unique Identifier'
       ind_number: 'Investigational New Drug (IND) Number'
-      short_title: 'An abbreviated form of the title used to identify your study/project'
-      title: 'Full title of your study/project'
+      short_title: 'An abbreviated form of the title used to identify your study/project. Special characters outside the allowed range will be removed automatically.'
+      title: 'Full title of your study/project. Special characters outside the allowed range will be removed automatically.'
       funding_status: 'Indicates whether or not funding has been applied for or obtained'
       potential_funding_source: 'Funding source that has been applied for but not yet obtained. Pricing is logically driven off this field'
       funding_source: 'Funding source which drives research pricing for your study/project'
@@ -548,7 +573,7 @@ en:
   not_approved_warning:
     header: "Account not Approved"
     text1: "Your account has not yet been approved for use in SPARCRequest."
-    text2: "If you believe this is incorrect, please contact the CTSI Center at  sparcrequest@childrensnational.org."
+    text2: "If you believe this is incorrect, please contact the SUCCESS center at (843) 792-8300 or success@musc.edu."
 
   #############
   # SUBSIDIES #
@@ -599,7 +624,7 @@ en:
   # VALIDATION ERROR MESSAGES #
   #############################
   errors:
-    user_note: "Fields with an Asterisk ( * ) are required"
+    user_note: "Fields marked with an asterisk ( * ) are required"
     arms:
       name_unique: "has to be unique within a study/project"
       bad_characters: "can not contain any of the following characters: [ ] * / \\ ? :"
@@ -1179,14 +1204,15 @@ en:
     send: 'Send'
     by: 'By'
     sent_protocols: 'Sent Protocols'
+    type: 'Type'
   footer:
-    mail_to: "mskhan2@cnmc.org"
+    mail_to: "hundc@musc.edu"
     mail_link: "Sign Up For the SPARC Request Listserv"
     mail_subject: "SPARC Request Listserv"
     link_one_text: "SPARC Request Blog"
     link_one_url: "https://sparcrequestblog.com/"
-    link_two_text: "CTSI"
-    link_two_url: "http://www.ctsicn.org"
+    link_two_text: "SCTR"
+    link_two_url: "http://sctr.musc.edu"
     link_three_text: "SPARC Request Home"
     link_three_url: "http://academicdepartments.musc.edu/sctr/sparc_request"
   identity:
@@ -1426,7 +1452,7 @@ en:
     contact_information: "Contact Information"
     delete_intro: "An Authorized User has been deleted in"
     epic_access: "Epic Access"
-    issue_contact: "Please contact the CTSI Center at  sparcrequest@childrensnational.org for assistance with this process or with any questions you may have."
+    issue_contact: "Please contact the SUCCESS Center at (843) 792-8300 or success@musc.edu for assistance with this process or with any questions you may have."
     name: "Name:"
     p_id: "Protocol ID:"
     p_info: "Protocol Information"
@@ -1529,7 +1555,7 @@ en:
     proxy: "Proxy Rights:"
     request_amendment: "Request Amendment"
     request_amendment_intro:  "Services have been added or deleted in SPARCRequest and is awaiting your review in"
-    requester:  "(Requester)"
+    requester:  "Requester"
     role: "Role"
     s_name: "Sponsor Name"
     service: "Service"
@@ -1674,7 +1700,7 @@ en:
     previously_submitted_study: "The request that you are editing has been previously submitted and can not be moved to another study."
     previously_submitted_project: "The request that you are editing has been previously submitted and can not be moved to another project."
     research_project: "New Project"
-    research_study: "New Research Study or Project"
+    research_study: "New Research Study"
     select_project: "Select Project"
     select_protocol: "Select a Research Study/Project"
     select_study: "Select Study"
@@ -1694,12 +1720,12 @@ en:
     message4: "** Please Note: You may only select services applicable to ONE research study/project at a time.**"
     message5: "Welcome to SPARC Request Version 4.0. We're happy to announce that Step 2 now includes the concept of clinical trial arms. You'll find other numerous enhancements and upgrades in Version 4.0. For more information and training documents, please visit our new website at"
     # <a>http://academicdepartments.musc.edu/sparc_request/</a>.
-    message6: "Please contact the CTSI Center at 792-8300 with any questions or to set up a demonstration!"
+    message6: "Please contact the SUCCESS Center at 792-8300 with any questions or to set up a demonstration!"
     message7: "Check out our SPARC Request Blog ("
     message8: "). This feature allows you to follow our latest news and is a great way to ask questions of and leave feedback for the SPARC Request Team as well as communicate with both us and other SPARC Request Users."
-    # message7: "Due to user feedback regarding the inclusion of Indirect Costs in the Grand Total of Study Costs, Indirect Costs (as a line item) have currently been removed from SPARC Request and will be reintroduced in the budget template tools in the Study Tracker Release. Please contact the CTSI Center at 792-8300 with any questions."
+    # message7: "Due to user feedback regarding the inclusion of Indirect Costs in the Grand Total of Study Costs, Indirect Costs (as a line item) have currently been removed from SPARC Request and will be reintroduced in the budget template tools in the Study Tracker Release. Please contact the SUCCESS Center at 792-8300 with any questions."
     message9: "Website/Training: "
-    message9link: 'http://ctsicn.org/node/159'
+    message9link: 'http://academicdepartments.musc.edu/sctr/sparc_request'
     message10: "Blog: "
     message10link: 'http://www.sparcrequestblog.com'
     message11: "Pricing is consistent across locations unless otherwise stated."
@@ -1751,7 +1777,7 @@ en:
       provider: "Provider:"
       short_title: "Short Title: "
     download_button: "Download my Service Request"
-    instructions: "Thank you for submitting your service request(s) through SPARC Request. An email has been sent to each of your service providers and they should be contacting you soon. If you have any questions or concerns, please don't hesitate to contact the CTSI Center at  sparcrequest@childrensnational.org."
+    instructions: "Thank you for submitting your service request(s) through SPARC Request. An email has been sent to each of your service providers and they should be contacting you soon. If you have any questions or concerns, please don't hesitate to contact the SUCCESS Center at 792-8300 or success@musc.edu."
     portal_button: "Go to Dashboard"
     research_pricing_instructions : "You have successfully submitted a request to get a cost estimate. An email(s) has been submitted on your behalf, and we will respond to your request for a cost estimate shortly. Should you have any questions regarding your request(s), please contact the service provider contact(s) listed below."
 
@@ -1890,7 +1916,7 @@ en:
   # Subsidy Page
   subsidy_page:
     additional_confirm: "Are you sure you want to leave? Any unsaved changes to this service request will be lost."
-    eligible_html: "The services selected below may be eligible for a <b><i>funding award</i></b> or subsidy to cover some or all of the costs of the services. For example, CTSI (CTSA) provides funding awards for the Research Nexus."
+    eligible_html: "The services selected below may be eligible for a <b><i>funding award</i></b> or subsidy to cover some or all of the costs of the services. For example, SCTR (CTSA) provides funding awards for the Research Nexus."
     not_eligible: "None of the services you have selected are eligible for a subsidy."
     overridden: "This request has been previously submitted and the subsidy can now only be edited by an Admin."
     request_additional: "To request additional research funding go to"
@@ -1923,7 +1949,7 @@ en:
       question_text5: "How is SPARC Request calculating my indirect costs?"
       answer_text5: "The original requester for your study/project defined both the funding source of the study/project and the indirect cost rate. SPARC Request uses this data to calculate your total overall indirect costs."
       question_text6: "I\'m stuck! Who can I contact for assistance with SPARC Request?"
-      answer_text6: "The CTSI Center is happy to assist you! Please contact us at sparcrequest@childrensnational.org ."
+      answer_text6: "The SUCCESS Center is happy to assist you! Please contact us at success@musc.edu or (843) 792-3357."
 
   # User details partial
   user_details:

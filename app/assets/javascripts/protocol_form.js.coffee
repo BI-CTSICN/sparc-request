@@ -1,4 +1,4 @@
-# Copyright © 2011-2017 MUSC Foundation for Research Development
+# Copyright © 2011-2018 MUSC Foundation for Research Development
 # All rights reserved.
 
 # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -111,9 +111,8 @@ $(document).ready ->
   $(document).on 'change', '#protocol_funding_status', ->
     $('.funding_status_dependent').hide()
     switch $(this).val()
-      when 'funded' then $('.funded').show() $('.funding_sponsor_dependent').show()
-      when 'pending_funding' then $('.pending_funding').show() $('.funding_sponsor_dependent').show()
-      when 'no_funding' then $('.funding_sponsor_dependent').hide()
+      when 'funded' then $('.funded').show()
+      when 'pending_funding' then $('.pending_funding').show()
   ###END FUNDING STATUS FIELDS DISPLAY###
 
 
