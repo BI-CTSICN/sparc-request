@@ -56,6 +56,7 @@ begin
   AUDIT_ACTIONS                  = config['audit_actions']
   ALERT_TYPES                    = config['alert_types']
   ALERT_STATUSES                 = config['alert_statuses']
+  IRB_APPROVAL_STATUS            = config['irb_approval_status']
 rescue
   raise "constants.yml not found"
 end

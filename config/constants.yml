@@ -237,3 +237,7 @@ browser_versions: {
   'Google Chrome': '3',
   'Safari': '4'
 }
+
+irb_approval_status: { 'Approval request Not Submitted': 'not_submitted',
+                      'Approval Pending': 'pending',
+                      'Approval Received': 'received' }

@@ -47,7 +47,7 @@ service_subsidy:
   forward: document_management
 
 document_management:
-  step_text: 'STEP 5: Document, Notes, and Forms'
+  step_text: 'STEP 5: Document, Notes, and Forms [Initial Consultation Form is REQUIRED]'
   css_class: orange-provider
   back: service_subsidy
   forward: review

@@ -41,8 +41,8 @@ en:
       listserv_subject: "SPARCRequest Listserv"
       sparc_blog: "Blog"
       sparc_blog_url: "https://sparcrequestblog.com/"
-      sctr: "SCTR"
-      sctr_url: "http://sctr.musc.edu"
+      sctr: "CTSI"
+      sctr_url: "http://www.ctsicn.org"
       about: "About"
       about_alt: "About SPARCRequest"
 
@@ -142,8 +142,8 @@ en:
       eligible_notice: "The services selected below may be eligible for a <b><i>funding award</i></b> or subsidy to cover some or all of the costs of the services."
       not_eligible_notice: "None of the services you have selected are eligible for a subsidy."
       request_funding_notice: "To request additional research funding go to "
-      request_funding_link: "sctr.musc.edu"
-      request_funding_url: "https://sctr.musc.edu/"
+      request_funding_link: "www.ctsicn.org"
+      request_funding_url: "https://www.ctsicn.org/"
 
     #######################
     # DOCUMENT MANAGEMENT #
@@ -151,7 +151,7 @@ en:
     document_management:
       documents_notice: "Documents"
       notes_notice: "Notes"
-      forms_notice: 'Forms'
+      forms_notice: 'Forms* [This Form is Required, click on Complete Form and Fill Information]'
       tooltips:
         documents: "Visible to Authorized Users and selected Service Providers"
         notes: "Important notes for your Study/Project"
@@ -184,7 +184,7 @@ en:
     # CONFIRMATION #
     ################
     confirmation:
-      confirmation_warning: "Thank you for submitting your service request(s) through SPARCRequest. An email has been sent to each of your service providers and they should be contacting you soon. If you have any questions or concerns, please don't hesitate to contact the SUCCESS Center at 792-8300 or success@musc.edu."
+      confirmation_warning: "Thank you for submitting your service request(s) through SPARCRequest. An email has been sent to each of your service providers and they should be contacting you soon. If you have any questions or concerns, please don't hesitate to contact the CTSI Center at sparcrequest@childrensnational.org."
       cost_estimate_warning: "You have successfully submitted a request to get a cost estimate. Emails have been submitted on your behalf and we will respond to your request shortly. Should you have any questions regarding your request, please contact the Service Providers listed below."
       service_requests_notice: "My Service Requests"
       download_request: "Download Service Request"
@@ -271,7 +271,7 @@ en:
         question_5: "How is SPARC Request calculating my indirect costs?"
         answer_5: "The original requester for your study/project defined both the funding source of the study/project and the indirect cost rate. SPARC Request uses this data to calculate your total overall indirect costs."
         question_6: "I\'m stuck! Who can I contact for assistance with SPARC Request?"
-        answer_6: "The SUCCESS Center is happy to assist you! Please contact us at success@musc.edu or (843) 792-3357."
+        answer_6: "The CTSI Center is happy to assist you! Please contact us at sparcrequest@childrensnational.org."
       feedback:
         header: "Feedback"
         email: "Email:"
@@ -284,4 +284,4 @@ en:
         email: "Email:"
         message: "Message:"
         submitted: "Message sent successfully!"
-      ctrc_lock: "SCTR Research Nexus services are already present on this request (%{protocol_id}-%{ssr_id}) pertaining to this %{protocol_type}, '%{short_title}'. Please call (843) 792-8688 to edit the existing request."
+      ctrc_lock: "CTSI Research Nexus services are already present on this request (%{protocol_id}-%{ssr_id}) pertaining to this %{protocol_type}, '%{short_title}'. Please call (843) 792-8688 to edit the existing request."
