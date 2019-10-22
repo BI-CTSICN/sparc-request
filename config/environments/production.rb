@@ -95,8 +95,10 @@ SparcRails::Application.configure do
   config.action_mailer.default_url_options = { :host => 'sparc.ctsicn.org' }
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
-
-  ignore_if: ->(env, exception) { ['xx.xx.xx.xx'].include?(env['REMOTE_ADDR']) },
+   
+  config.middleware.use ExceptionNotification::Rack,
+    email: { 
+      ignore_if: ->(env, exception) { ['xx.xx.xx.xx'].include?(env['REMOTE_ADDR']) },
       sender_address: 'sparcrequest@childrensnational.org',
       exception_recipients: ['mskhan2@cnmc.org', 'hmorizono@cnmc.org',
                              'dkkim@cnmc.org', 'ccolvin@cnmc.org',

@@ -28,7 +28,7 @@ set :use_sudo, false
 
 #set :tmp_dir, "/home/capistrano/deploy"
 set :stages, %w(testing development demo2 staging production)
-set :default_stage, 'development'
+set :default_stage, 'production'
 
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
